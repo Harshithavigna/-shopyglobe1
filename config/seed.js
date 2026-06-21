@@ -1,9 +1,7 @@
 const dotenv = require("dotenv");
 const connectDB = require("./db");
 const Product = require("../models/Product");
-
 dotenv.config();
-
 const sampleProducts = [
   {
     name: "Wireless Bluetooth Headphones",
@@ -41,7 +39,6 @@ const sampleProducts = [
     category: "Sports & Fitness",
   },
 ];
-
 const seedData = async () => {
   try {
     await connectDB();
@@ -54,5 +51,4 @@ const seedData = async () => {
     process.exit(1);
   }
 };
-
 seedData();
