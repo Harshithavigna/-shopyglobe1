@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 // Connects to MongoDB using the URI defined in the .env file.
 // Exits the process if the connection fails, since the app cannot function without a DB.
 const connectDB = async () => {
@@ -11,5 +10,4 @@ const connectDB = async () => {
     process.exit(1);
   }
 };
-
 module.exports = connectDB;
