@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
-
 // User schema - used for registration/login (JWT authentication)
 const userSchema = new mongoose.Schema(
   {
@@ -25,7 +24,6 @@ const userSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-
 // Hash the password before saving, only if it was modified
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) return next();
@@ -33,10 +31,8 @@ userSchema.pre("save", async function (next) {
   this.password = await bcrypt.hash(this.password, salt);
   next();
 });
-
 // Instance method to compare entered password with hashed password
 userSchema.methods.comparePassword = async function (enteredPassword) {
   return bcrypt.compare(enteredPassword, this.password);
 };
-
 module.exports = mongoose.model("User", userSchema);
