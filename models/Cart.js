@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 // Each cart item links a user to a product with a quantity.
 // One document per (user, product) pair.
 const cartSchema = new mongoose.Schema(
@@ -23,8 +22,6 @@ const cartSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-
 // Prevent the same user from having duplicate cart entries for the same product
 cartSchema.index({ user: 1, product: 1 }, { unique: true });
-
 module.exports = mongoose.model("Cart", cartSchema);
