@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 // Product schema - represents each item sold on ShoppyGlobe
 const productSchema = new mongoose.Schema(
   {
@@ -35,5 +34,4 @@ const productSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-
 module.exports = mongoose.model("Product", productSchema);
